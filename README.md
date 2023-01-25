@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Bump version and push tag
         id: tag_version
-        uses: mathieudutour/github-tag-action@v6.1
+        uses: danielatk/github-tag-action@v1
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
