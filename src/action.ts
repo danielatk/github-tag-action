@@ -28,6 +28,7 @@ export default async function main() {
   const createAnnotatedTag = /true/i.test(
     core.getInput('create_annotated_tag')
   );
+  const annotatedTagMessage = core.getInput('annotated_tag_message');
   const dryRun = core.getInput('dry_run');
   const customReleaseRules = core.getInput('custom_release_rules');
   const shouldFetchAllTags = core.getInput('fetch_all_tags');
@@ -228,5 +229,5 @@ export default async function main() {
     return;
   }
 
-  await createTag(newTag, createAnnotatedTag, commitRef);
+  await createTag(newTag, createAnnotatedTag, commitRef, annotatedTagMessage);
 }
