@@ -229,5 +229,10 @@ export default async function main() {
     return;
   }
 
-  await createTag(newTag, createAnnotatedTag, commitRef, annotatedTagMessage);
+  let tagMessage = newTag;
+  if (createAnnotatedTag && typeof annotatedTagMessage !== undefined) {
+    tagMessage = annotatedTagMessage;
+  }
+
+  await createTag(newTag, createAnnotatedTag, commitRef, tagMessage);
 }

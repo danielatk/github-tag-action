@@ -69,7 +69,7 @@ export async function createTag(
   newTag: string,
   createAnnotatedTag: boolean,
   GITHUB_SHA: string,
-  tagMessage?: string
+  tagMessage: string
 ) {
   const octokit = getOctokitSingleton();
   let annotatedTag:
@@ -80,7 +80,7 @@ export async function createTag(
     annotatedTag = await octokit.git.createTag({
       ...context.repo,
       tag: newTag,
-      message: typeof tagMessage === undefined ? newTag : tagMessage,
+      message: tagMessage,
       object: GITHUB_SHA,
       type: 'commit',
     });
